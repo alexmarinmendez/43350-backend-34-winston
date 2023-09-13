@@ -1,5 +1,5 @@
 import express from "express";
-import { logger } from './utils/logger.js'
+import logger from './logger.js'
 
 const app = express()
 
@@ -8,4 +8,12 @@ app.get('/', (req, res) => {
     res.json({ status: 'success' })
 })
 
-app.listen(8080, () => console.log('Server Up!'))
+app.listen(8080, () => {
+    logger.error('Server Up!')
+    logger.warn('Server Up!')
+    logger.info('Server Up!')
+    logger.http('Server Up!')
+    logger.verbose('Server Up!')
+    logger.debug('Server Up!')
+    logger.silly('Server Up!')
+})
